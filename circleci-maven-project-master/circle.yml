@@ -18,7 +18,7 @@ jobs:
             key: Ashwinigateway user key -{{ checksum "pom.xml" }}
       
       - test:
-override:
+        override:
         - mvn -o surefire:test
 
         - store_test_results:
