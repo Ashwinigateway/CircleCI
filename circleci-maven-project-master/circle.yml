@@ -1,13 +1,25 @@
-dependencies:
-  override:
-    - mvn -DskipTests clean install dependency:resolve-plugins dependency:go-offline
+version: 2
+jobs:
+  deploy-job:
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "75:7a:6f:69:15:e7:86:44:fc:00:cd:8c:36:3c:be:b6"  
+	  - checkout
 
-test:
-  override:
-    - mvn -o surefire:test
+      - restore_cache:
+          key: Ashwinigateway user key -{{ checksum "pom.xml" }}
+      
+      - run: mvn dependency:go-offline
+      
+      - save_cache:
+          paths:
+            - ~/.m2
+            key: Ashwinigateway user key -{{ checksum "pom.xml" }}
+      
+      - test:
+		    override:
+        - mvn -o surefire:test
 
-deployment:
-  main:
-    branch: master
-    commands:
-      - mvn -s .circleci.settings.xml -DskipTests deploy
+        - store_test_results:
+            path: target/surefire-reports
