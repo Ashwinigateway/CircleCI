@@ -8,16 +8,16 @@
   <packaging>jar</packaging>
 
   <name>circleci-maven-project</name>
-  <url>https://github.com/computology/circleci-maven-project</url>
+  <url>https://github.com/Ashwinigateway/CircleCI</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
   <scm>
-    <connection>scm:git:ssh://github.com/computology/circleci-maven-project.git</connection>
-    <developerConnection>scm:git:ssh://git@github.com/computology/circleci-maven-project.git</developerConnection>
-    <url>https://github.com/computology/circleci-maven-project</url>
+    <connection>scm:git:ssh://github.com/Ashwinigateway/CircleCI.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com:Ashwinigateway/CircleCI.git</developerConnection>
+    <url>https://github.com/Ashwinigateway/CircleCI</url>
   </scm>
 
   <build>
