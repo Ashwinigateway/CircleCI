@@ -5,7 +5,7 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - "75:7a:6f:69:15:e7:86:44:fc:00:cd:8c:36:3c:be:b6"  
-	  - checkout
+      - checkout
 
       - restore_cache:
           key: Ashwinigateway user key -{{ checksum "pom.xml" }}
@@ -18,7 +18,7 @@ jobs:
             key: Ashwinigateway user key -{{ checksum "pom.xml" }}
       
       - test:
-		    override:
+	override:
         - mvn -o surefire:test
 
         - store_test_results:
